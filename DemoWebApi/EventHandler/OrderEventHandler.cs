@@ -38,7 +38,7 @@ namespace DemoWebApi.BusinessService.Impl
         public async Task PrepareCreateOrder(PrepareCreateOrderEvent input)
         {
             var data = new ReduceProductStockEvent();
-            data.OrderNo = $"{DateTime.Now:YYYYMMDDHHmmss}{RandomHelper.GetRandomInt(10000, 99999)}";
+            data.OrderNo = $"{DateTime.Now:yyyyMMddHHmmss}{RandomHelper.GetRandomInt(10000, 99999)}";
             data.UserId = 1;
             data.Items = new List<ReduceProductStockEvent.ReduceProductStockItem>();
             input.produceItems.ForEach(x => data.Items.Add(new ReduceProductStockEvent.ReduceProductStockItem() { ProductId = x.ProductId, Count = x.Count }));
